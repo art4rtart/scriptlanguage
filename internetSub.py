@@ -24,6 +24,7 @@ def userURIBuilder(server,**user):
 def connectOpenAPIServer():
     global conn, server
     conn = HTTPConnection(server)
+
         
 def getBookDataFromISBN(isbn):
     global server, regKey, conn
