@@ -1,7 +1,7 @@
 import urllib.request
 import urllib
 
-class GetShortesData:
+class GetStationData:
     key = '6c4e636b7263686c3131326b4e4c5456'
     hangul_utf8 = urllib.parse.quote("4호선")
     url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/5/" % key + hangul_utf8)
@@ -13,5 +13,5 @@ class GetShortesData:
         f.write(data)
         f.close()
 
-getData = GetShortesData()
+getData = GetStationData()
 getData.main()
