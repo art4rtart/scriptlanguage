@@ -73,9 +73,9 @@ def arrival():
 
 
     for a in rootArrival.findall('row'):
+        print("====================")
         print(a.findtext('trainLineNm'))
         print(a.findtext('recptnDt'))
-        print("====================")
 
         if a.findtext("rowNum") == "2":
             break
@@ -139,7 +139,6 @@ def showMenu():
     print("2. 실시간 열차 위치")
     print("3. 최단  경로  검색 ")
     print("4. 첫차  막차  검색 ")
-    print("5. 주변  버스  검색 ")
     print("6. 인터넷 메일 전송 ")
     print("====================")
 
