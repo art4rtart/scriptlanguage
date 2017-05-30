@@ -24,9 +24,6 @@ def InitSearchListBox():
     myList = Label(g_Tk, image=photo)
     scrollbar.config(command=myList.yview)
 
-
-
-
 def InitInputLabel():
     global InputLabel
     TempFont = font.Font(g_Tk, size=15, weight='bold', family = 'Consolas')
