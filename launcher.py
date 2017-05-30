@@ -2,9 +2,11 @@ import xml.etree.ElementTree as etree
 import urllib.request
 import urllib
 import os
+
 # smtp 정보
 host = "smtp.gmail.com" # Gmail SMTP 서버 주소.
 port = "587"
+htmlFileName = "data.html"
 
 class GetArrivalData:
     def __init__(self, n):
@@ -72,13 +74,22 @@ def arrival():
     rootArrival = arrival.getroot()
 
 
-    for a in rootArrival.findall('row'):
+    if(rootArrival.findtext('code') == 'INFO-200'):
         print("====================")
-        print(a.findtext('trainLineNm'))
-        print(a.findtext('recptnDt'))
+        print(rootArrival.findtext('message'))
 
-        if a.findtext("rowNum") == "2":
-            break
+    else:
+        for a in rootArrival.findall('row'):
+            print("====================")
+            print(a.findtext('trainLineNm'))
+            print(a.findtext('recptnDt'))
+
+            if a.findtext("rowNum") == "2":
+                break
+
+    key = input()
+    if(key == 'b'):
+        os.system('cls')
 
 def subPos():
     name = str(input("호선 입력 : "))
@@ -89,29 +100,23 @@ def subPos():
     pos = etree.parse('position.xml')
     rootPos = pos.getroot()
 
-    for a in rootPos.findall('row'):
+    if(rootPos.findtext('code') == 'INFO-200'):
         print("====================")
-        print(a.findtext('subwayNm'))
-        print(a.findtext('statnNm'))
-        print(a.findtext('recptnDt'))
+        print(rootPos.findtext('message'))
 
-        if a.findtext("rowNum") == "2":
-            break
+    else:
+        for a in rootPos.findall('row'):
+            print("====================")
+            print(a.findtext('subwayNm'))
+            print(a.findtext('statnNm'))
+            print(a.findtext('recptnDt'))
 
-def schedule():
-    getData = GetScheduleData()
-    getData.main()
+            if a.findtext("rowNum") == "2":
+                break
 
-    sc = etree.parse('schedule.xml')
-    rootSc = sc.getroot()
-
-    for a in rootSc.findall('row'):
-        print(a.findtext('weekendTranHour'))
-        print(a.findtext('saturdayTranHour'))
-        print(a.findtext('holidayTranHour'))
-
-        if a.findtext("rowNum") == "2":
-            break
+    key = input()
+    if(key == 'b'):
+        os.system('cls')
 
 def shortest():
     begin = input("출발역 : ")
@@ -131,6 +136,43 @@ def shortest():
         # print(a.findtext('shtStatnNm'))
         break
 
+    b = input("자주 지나는 경로로 추가 하시겠습니까? (Y/N) : ")
+
+    if b is 'y':
+        a = rootShort.findtext('row/minTransferMsg')
+        a.split()
+
+        f = open('logo.html', 'w')
+        f.write(rootShort.findtext('row/statnFnm'))
+        f.write(" 에서 ")
+        f.write(rootShort.findtext('row/statnTnm'))
+        f.write(" 까지 ")
+        f.write(a)
+        f.close()
+        os.system('cls')
+
+    else:
+        os.system('cls')
+
+def schedule():
+    getData = GetScheduleData()
+    getData.main()
+
+    sc = etree.parse('schedule.xml')
+    rootSc = sc.getroot()
+
+    for a in rootSc.findall('row'):
+        print(a.findtext('weekendTranHour'))
+        print(a.findtext('saturdayTranHour'))
+        print(a.findtext('holidayTranHour'))
+
+        if a.findtext("rowNum") == "2":
+            break
+
+    key = input()
+    if(key == 'b'):
+        os.system('cls')
+
 def showMenu():
     print("====================")
     print("서울시 지하철 서비스 ")
@@ -139,7 +181,7 @@ def showMenu():
     print("2. 실시간 열차 위치")
     print("3. 최단  경로  검색 ")
     print("4. 첫차  막차  검색 ")
-    print("6. 인터넷 메일 전송 ")
+    print("5. 인터넷 메일 전송 ")
     print("====================")
 
 def sendMail():
@@ -150,6 +192,7 @@ def sendMail():
     recipientAddr = str(input('recipient email address :'))
     messageText = str(input('write message :'))
     pwd = str(input(' input your password of gmail account :'))
+
 
     import mysmtplib
     # MIMEMultipart의 MIME을 생성합니다.
@@ -164,12 +207,12 @@ def sendMail():
     msg['From'] = senderAddr
     msg['To'] = recipientAddr
 
-    msgPart = MIMEText(messageText, 'plain')
-    bookPart = MIMEText(html, 'html', _charset='UTF-8')
+    htmlFD = open(htmlFileName, 'rb')
+    HtmlPart = MIMEText(htmlFD.read(), 'html', _charset='UTF-8')
+    htmlFD.close()
 
     # 메세지에 생성한 MIME 문서를 첨부합니다.
-    msg.attach(msgPart)
-    msg.attach(bookPart)
+    msg.attach(HtmlPart)
 
     print("connect smtp server ... ")
     s = mysmtplib.MySMTP(host, port)
