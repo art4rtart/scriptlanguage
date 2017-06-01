@@ -30,7 +30,7 @@ class GetSubPosData:
     def main(self):
         key = '6c4e636b7263686c3131326b4e4c5456'
         hangul_utf8 = urllib.parse.quote(self.name)
-        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/5/" % key + hangul_utf8)
+        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/1/50/" % key + hangul_utf8)
 
         data = urllib.request.urlopen(self.url).read()
         f = open("position.xml", "wb")
@@ -53,13 +53,15 @@ class GetShortestData:
         f.close()
 
 class GetScheduleData:
-    key = '655a454a4563686c34325379714367 '
-    hangul_utf8 = urllib.parse.quote("정왕")
-    url = ("http://swopenapi.seoul.go.kr/api/subway/%s/xml/firstLastTimetable/0/5/정왕" % key + hangul_utf8)
+    def __init__(self, n):
+        self.name = n
 
     def main(self):
-        data = urllib.request.urlopen(self.url).read()
+        key = '676a78647663686c3937454f514c57'
+        hangul_utf8 = urllib.parse.quote(self.name)
+        self.url = ("http://openAPI.seoul.go.kr:8088/%s/xml/SearchFirstAndLastTrainInfobyLineService/1/50/" % key + hangul_utf8)
 
+        data = urllib.request.urlopen(self.url).read()
         f = open("schedule.xml", "wb")
         f.write(data)
         f.close()
@@ -82,7 +84,7 @@ def arrival():
         for a in rootArrival.findall('row'):
             print("====================")
             print(a.findtext('trainLineNm'))
-            print(a.findtext('recptnDt'))
+            print(a.findtext('arvlMsg2'))
 
             if a.findtext("rowNum") == "2":
                 break
@@ -100,19 +102,41 @@ def subPos():
     pos = etree.parse('position.xml')
     rootPos = pos.getroot()
 
+    sub = str(input("역 입력 : "))
+
     if(rootPos.findtext('code') == 'INFO-200'):
         print("====================")
         print(rootPos.findtext('message'))
 
     else:
         for a in rootPos.findall('row'):
-            print("====================")
-            print(a.findtext('subwayNm'))
-            print(a.findtext('statnNm'))
-            print(a.findtext('recptnDt'))
+            if(sub == a.findtext('statnNm')):
+                print("====================")
+                print("지하철역:", a.findtext('statnNm'))
 
-            if a.findtext("rowNum") == "2":
-                break
+                if(a.findtext('trainSttus') == '0'):
+                    print('열차 상태 : 진입')
+
+                elif(a.findtext('trainSttus') == '1'):
+                    print('열차 상태 : 도착')
+
+                else:
+                    print('열차 상태 : 출발')
+
+                print("종착역:", a.findtext('statnTnm'))
+
+                if(a.findtext('directAt') == '0'):
+                    print('급행 : X')
+
+                else:
+                    print('급행 : O')
+
+                if(a.findtext('lstcarAt') == '0'):
+                    print('막차 : X')
+
+                else:
+                    print('막차 : O')
+        print("====================")
 
     key = input()
     if(key == 'b'):
@@ -155,19 +179,30 @@ def shortest():
         os.system('cls')
 
 def schedule():
-    getData = GetScheduleData()
+    begin = input("호선 입력(숫자) : ")
+    station = input("역명 입력(한글) : ")
+    print("====================")
+    print("      요일 선택     ")
+    print("====================")
+    print("1. 평일")
+    print("2. 토요일")
+    print("3. 일요일 / 공휴일")
+    end = input("요일 입력 : ")
+    print("====================")
+    name = begin + "/" + end + "/1"
+
+    getData = GetScheduleData(name)
     getData.main()
 
     sc = etree.parse('schedule.xml')
     rootSc = sc.getroot()
 
     for a in rootSc.findall('row'):
-        print(a.findtext('weekendTranHour'))
-        print(a.findtext('saturdayTranHour'))
-        print(a.findtext('holidayTranHour'))
-
-        if a.findtext("rowNum") == "2":
-            break
+        if(station == a.findtext('STATION_NM')):
+            print(a.findtext('STATION_NM'))
+            print("첫차:", a.findtext('FIRST_TIME'))
+            print("막차:", a.findtext('LAST_TIME'))
+            print("====================")
 
     key = input()
     if(key == 'b'):
@@ -254,5 +289,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
