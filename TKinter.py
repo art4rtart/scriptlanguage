@@ -128,9 +128,7 @@ def InitRenderText():
 InitTopText()
 InitSearchListBox()
 
-
-
-#InitInputLabel()
+InitInputLabel()
 #InitSearchButton()
 #InitRenderText()
 #InitSendEmailButton()
