@@ -72,7 +72,7 @@ def arrival():
     getData = GetArrivalData(name)
     getData.main()
 
-    arrival = etree.parse('arrival.xml')
+    arrival = etree.parse('./xml/arrival.xml')
     rootArrival = arrival.getroot()
 
 
@@ -99,7 +99,7 @@ def subPos():
     getData = GetSubPosData(name)
     getData.main()
 
-    pos = etree.parse('position.xml')
+    pos = etree.parse('./xml/position.xml')
     rootPos = pos.getroot()
 
     sub = str(input("역 입력 : "))
@@ -150,7 +150,7 @@ def shortest():
     getData = GetShortestData(name)
     getData.main()
 
-    short = etree.parse('shortest.xml')
+    short = etree.parse('./xml/shortest.xml')
     rootShort = short.getroot()
 
     for a in rootShort.findall('row'):
@@ -194,7 +194,7 @@ def schedule():
     getData = GetScheduleData(name)
     getData.main()
 
-    sc = etree.parse('schedule.xml')
+    sc = etree.parse('./xml/schedule.xml')
     rootSc = sc.getroot()
 
     for a in rootSc.findall('row'):
