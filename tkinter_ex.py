@@ -16,6 +16,7 @@ with urllib.request.urlopen(url) as u:
 im = Image.open(BytesIO(raw_data))
 image = ImageTk.PhotoImage(im)
 
+
 label = Label(root, image=image, height=400, width=400)
 label.pack()
 label.place(x=0, y=0)
