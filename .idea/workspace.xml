@@ -15,14 +15,17 @@
       <file leaf-file-name="launcher.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/launcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="380">
+              <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#206#625#0" expanded="false" />
                 <element signature="e#652#1066#0" expanded="false" />
                 <element signature="e#1095#1504#0" expanded="false" />
                 <element signature="e#1533#1961#0" expanded="false" />
+                <element signature="e#1982#2604#0" expanded="false" />
+                <element signature="e#2624#3845#0" expanded="false" />
+                <element signature="e#3867#4750#0" expanded="false" />
                 <element signature="e#5583#5841#0" expanded="false" />
                 <element signature="e#5863#6960#0" expanded="false" />
                 <element signature="e#6978#7415#0" expanded="false" />
@@ -34,52 +37,69 @@
       <file leaf-file-name="tkinter_ex.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tkinter_ex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="251" column="32" lean-forward="false" selection-start-line="251" selection-start-column="32" selection-end-line="251" selection-end-column="32" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#447#633#0" expanded="false" />
+                <element signature="e#681#1371#0" expanded="false" />
+                <element signature="e#1427#1670#0" expanded="false" />
+                <element signature="e#1699#1934#0" expanded="false" />
+                <element signature="e#1965#2209#0" expanded="false" />
+                <element signature="e#2322#2489#0" expanded="false" />
+                <element signature="e#2523#2694#0" expanded="false" />
+                <element signature="e#2724#2889#0" expanded="false" />
+                <element signature="e#2921#3090#0" expanded="false" />
+                <element signature="e#3203#3470#0" expanded="false" />
+                <element signature="e#3500#3751#0" expanded="false" />
+                <element signature="e#3854#4016#0" expanded="false" />
+                <element signature="e#4039#4202#0" expanded="false" />
+                <element signature="e#4230#4655#0" expanded="false" />
+                <element signature="e#4684#4733#0" expanded="false" />
+                <element signature="e#4850#5374#0" expanded="false" />
+                <element signature="e#5403#5927#0" expanded="false" />
+                <element signature="e#5958#6482#0" expanded="false" />
+                <element signature="e#6514#7038#0" expanded="false" />
+                <element signature="e#7070#7596#0" expanded="false" />
+                <element signature="e#8270#10552#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gmail.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gmail.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/tkinter/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="32205">
+              <caret line="1698" column="0" lean-forward="false" selection-start-line="1698" selection-start-column="0" selection-end-line="1698" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dll.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/lib/site-packages/sdl2/dll.py">
+      <file leaf-file-name="tkinter_ex.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../수업자료/tkinter_ex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="380">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
-                <element signature="e#18#27#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#374#1052#0" expanded="false" />
+                <element signature="e#1080#1323#0" expanded="false" />
+                <element signature="e#1353#1574#0" expanded="false" />
+                <element signature="e#1607#2099#0" expanded="false" />
+                <element signature="e#2127#4405#0" expanded="false" />
+                <element signature="e#4434#4959#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simpleEmail.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simpleEmail.py">
+      <file leaf-file-name="tst.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysmtplib.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysmtplib.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="190">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,6 +158,7 @@
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/pico2d.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/lib/site-packages/pico2d.py" />
         <option value="$PROJECT_DIR$/ab.py" />
+        <option value="$PROJECT_DIR$/tst.py" />
         <option value="$PROJECT_DIR$/tkinter_ex.py" />
       </list>
     </option>
@@ -163,7 +184,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -178,6 +198,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -203,42 +224,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.tkinter_ex">
-    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="launcher (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/book.xml" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/book.xml/launcher.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="tkinter_ex" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -288,6 +273,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Jumphobia/Jumphobia/jumphobia.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="tkinter_ex (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../수업자료" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../수업자료/tkinter_ex.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="tst" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tst.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -377,19 +398,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.launcher" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.launcher (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Python.tkinter_ex" />
-      <item index="4" class="java.lang.String" itemvalue="Python.pico2d" />
-      <item index="5" class="java.lang.String" itemvalue="Python.jumphobia" />
+      <item index="1" class="java.lang.String" itemvalue="Python.tkinter_ex" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pico2d" />
+      <item index="3" class="java.lang.String" itemvalue="Python.jumphobia" />
+      <item index="4" class="java.lang.String" itemvalue="Python.tkinter_ex (1)" />
+      <item index="5" class="java.lang.String" itemvalue="Python.tst" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.tkinter_ex" />
-        <item index="1" class="java.lang.String" itemvalue="Python.jumphobia" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pico2d" />
-        <item index="3" class="java.lang.String" itemvalue="Python.launcher (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tst" />
+        <item index="2" class="java.lang.String" itemvalue="Python.tkinter_ex (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.jumphobia" />
+        <item index="4" class="java.lang.String" itemvalue="Python.pico2d" />
       </list>
     </recent_temporary>
   </component>
@@ -410,12 +431,12 @@
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22570533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22546972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23692636" sideWeight="0.5062696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23710209" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23710209" sideWeight="0.4937304" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -453,16 +474,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="24" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/book.xml/.idea/2부17장.iml" />
-    <entry file="file://$PROJECT_DIR$/book.xml/logo.gif" />
-    <entry file="file://$PROJECT_DIR$/book.xml/MixedType.py" />
-    <entry file="file://$PROJECT_DIR$/dd.py" />
-    <entry file="file://$PROJECT_DIR$/readme.txt" />
     <entry file="file://$PROJECT_DIR$/Shortest.py" />
     <entry file="file://$PROJECT_DIR$/Position.py" />
     <entry file="file://$PROJECT_DIR$/Search.py" />
@@ -474,13 +490,6 @@
     <entry file="file://C:/pycharm/script/python32-master/2부 모듈/2부17장/launcher.py" />
     <entry file="file://C:/python/Lib/urllib/parse.py" />
     <entry file="file://$PROJECT_DIR$/Plan.txt" />
-    <entry file="file://$PROJECT_DIR$/../수업자료/tkinter_ex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Microsoft/Windows/INetCache/IE/5KDK4PY1/tkinter_ex.py" />
     <entry file="file://$PROJECT_DIR$/우주소녀.gif" />
     <entry file="file://$PROJECT_DIR$/sub.gif" />
@@ -524,15 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysmtplib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -552,9 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="e#18#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -563,20 +560,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="9" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25080">
+          <caret line="1345" column="0" lean-forward="false" selection-start-line="1345" selection-start-column="0" selection-end-line="1345" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/title.png" />
+    <entry file="file://$PROJECT_DIR$/search.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysmtplib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/launcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#206#625#0" expanded="false" />
             <element signature="e#652#1066#0" expanded="false" />
             <element signature="e#1095#1504#0" expanded="false" />
             <element signature="e#1533#1961#0" expanded="false" />
+            <element signature="e#1982#2604#0" expanded="false" />
+            <element signature="e#2624#3845#0" expanded="false" />
+            <element signature="e#3867#4750#0" expanded="false" />
             <element signature="e#5583#5841#0" expanded="false" />
             <element signature="e#5863#6960#0" expanded="false" />
             <element signature="e#6978#7415#0" expanded="false" />
@@ -584,12 +603,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tkinter_ex.py">
+    <entry file="file://$PROJECT_DIR$/../수업자료/tkinter_ex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#374#1052#0" expanded="false" />
+            <element signature="e#1080#1323#0" expanded="false" />
+            <element signature="e#1353#1574#0" expanded="false" />
+            <element signature="e#1607#2099#0" expanded="false" />
+            <element signature="e#2127#4405#0" expanded="false" />
+            <element signature="e#4434#4959#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32205">
+          <caret line="1698" column="0" lean-forward="false" selection-start-line="1698" selection-start-column="0" selection-end-line="1698" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tst.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tkinter_ex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="251" column="32" lean-forward="false" selection-start-line="251" selection-start-column="32" selection-end-line="251" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#447#633#0" expanded="false" />
+            <element signature="e#681#1371#0" expanded="false" />
+            <element signature="e#1427#1670#0" expanded="false" />
+            <element signature="e#1699#1934#0" expanded="false" />
+            <element signature="e#1965#2209#0" expanded="false" />
+            <element signature="e#2322#2489#0" expanded="false" />
+            <element signature="e#2523#2694#0" expanded="false" />
+            <element signature="e#2724#2889#0" expanded="false" />
+            <element signature="e#2921#3090#0" expanded="false" />
+            <element signature="e#3203#3470#0" expanded="false" />
+            <element signature="e#3500#3751#0" expanded="false" />
+            <element signature="e#3854#4016#0" expanded="false" />
+            <element signature="e#4039#4202#0" expanded="false" />
+            <element signature="e#4230#4655#0" expanded="false" />
+            <element signature="e#4684#4733#0" expanded="false" />
+            <element signature="e#4850#5374#0" expanded="false" />
+            <element signature="e#5403#5927#0" expanded="false" />
+            <element signature="e#5958#6482#0" expanded="false" />
+            <element signature="e#6514#7038#0" expanded="false" />
+            <element signature="e#7070#7596#0" expanded="false" />
+            <element signature="e#8270#10552#0" expanded="false" />
           </folding>
         </state>
       </provider>
