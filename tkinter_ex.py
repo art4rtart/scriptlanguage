@@ -328,7 +328,6 @@ def SearchLibrary():
                 RenderText.insert(INSERT, "\n\n")
 
 
-
 #InitSendEmailButton()
 #InitSortListBox()
 #InitSortButton()
