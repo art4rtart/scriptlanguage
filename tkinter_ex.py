@@ -32,26 +32,69 @@ mail = PhotoImage(file='mail.png')
 StartButtonCount = 0
 EndButtonCount = 0
 
-def InitSearchListBox():
+# First Last Train  -----------------------------------------------------------
+
+def StationSelect():
+    global InputStart
+    TempFont = font.Font(g_Tk, size=10, weight='bold', family = 'Consolas')
+    InputStart = Entry(g_Tk, font = TempFont, width = 20, borderwidth = 10, relief = 'ridge')
+    InputStart.pack()
+    InputStart.place(x=1030, y=170)
+
+def TrainSelect():
     global SearchListBox
     ListBoxScrollbar = Scrollbar(g_Tk)
     ListBoxScrollbar.pack()
-    ListBoxScrollbar.place(x=280, y=490)
+    ListBoxScrollbar.place(x=1215, y=215)
 
-    TempFont = font.Font(g_Tk, size=15, weight='bold', family='Consolas')
+    TempFont = font.Font(g_Tk, size=10, weight='bold', family='Consolas')
     SearchListBox = Listbox(g_Tk, font=TempFont, activestyle='none',
-                            width=10, height=1, borderwidth=12, relief='ridge',
+                            width=20, height=1, borderwidth=10, relief='ridge',
                             yscrollcommand=ListBoxScrollbar.set)
 
-    SearchListBox.insert(1, "도서관")
-    SearchListBox.insert(2, "모범음식점")
-    SearchListBox.insert(3, "마트")
-    SearchListBox.insert(4, "문화공간")
+    SearchListBox.insert(1, "1호선")
+    SearchListBox.insert(2, "2호선")
+    SearchListBox.insert(3, "3호선")
+    SearchListBox.insert(4, "4호선")
+    SearchListBox.insert(5, "5호선")
+    SearchListBox.insert(6, "6호선")
+    SearchListBox.insert(7, "7호선")
+    SearchListBox.insert(8, "8호선")
+    SearchListBox.insert(9, "9호선")
     SearchListBox.pack()
-    SearchListBox.place(x=140, y=490)
-    # 140
+    SearchListBox.place(x=1030, y=225)
+
     ListBoxScrollbar.config(command=SearchListBox.yview)
-# InitSearchListBox()
+
+def DaySelect():
+    global SearchListBox
+    ListBoxScrollbar = Scrollbar(g_Tk)
+    ListBoxScrollbar.pack()
+    ListBoxScrollbar.place(x=1215, y=270)
+
+    TempFont = font.Font(g_Tk, size=10, weight='bold', family='Consolas')
+    SearchListBox = Listbox(g_Tk, font=TempFont, activestyle='none',
+                            width=20, height=1, borderwidth=10, relief='ridge',
+                            yscrollcommand=ListBoxScrollbar.set)
+
+    SearchListBox.insert(1, "평일")
+    SearchListBox.insert(2, "토요일")
+    SearchListBox.insert(3, "일요일 / 공휴일")
+
+    SearchListBox.pack()
+    SearchListBox.place(x=1030, y=280)
+
+    ListBoxScrollbar.config(command=SearchListBox.yview)
+
+def SearchFirstLast():
+    SearchButton = Button(g_Tk, image = search, command=StartFirstLastAction, borderwidth = 5, relief = 'ridge')
+    SearchButton.pack()
+    SearchButton.place(x=1200, y=170)
+
+def StartFirstLastAction():
+    print("ok")
+
+# -----------------------------------------------------------------------------
 
 def InputStartStation():
     global InputStart
@@ -119,7 +162,6 @@ def StartStationAction():
         check.startLock = False
 
     StartButtonCount += 1
-
     if check.startLock is True:
         if check.endLock is True:
             shortest()
@@ -183,11 +225,11 @@ def sendEmailAction():
 
 # -----------------------------------------------------------------------------
 
-def ArrivalRenderText():
+def ArrivalRenderText(): # 수정 해야함
     TempFont = font.Font(g_Tk, size=14, family='Consolas')
     RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
     RenderText.pack()
-    RenderText.place(x=695, y=160)
+    RenderText.place(x=695, y=158)
 
 def ShortestRenderText():
     TempFont = font.Font(g_Tk, size=17, family='Consolas')
@@ -219,9 +261,9 @@ def ScheduleRenderText():
     RenderTextScrollbar.place(x=440, y=450)
 
     TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=28, height=23, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
+    RenderText = Text(g_Tk, width=28, height=10, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
     RenderText.pack()
-    RenderText.place(x=1032, y=159)
+    RenderText.place(x=1032, y=330)
     RenderTextScrollbar.config(command=RenderText.yview)
     RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
 
@@ -350,15 +392,60 @@ def arrival():
         RenderText.insert(INSERT, "\n")
 
         RenderText.pack()
-        RenderText.place(x=695, y=160)
+        RenderText.place(x=695, y=158)
 
+class GetScheduleData:
+    def __init__(self, n):
+        self.name = n
+
+    def main(self):
+        key = '676a78647663686c3937454f514c57'
+        hangul_utf8 = urllib.parse.quote(self.name)
+        self.url = ("http://openAPI.seoul.go.kr:8088/%s/xml/SearchFirstAndLastTrainInfobyLineService/1/50/" % key + hangul_utf8)
+
+        data = urllib.request.urlopen(self.url).read()
+        f = open("schedule.xml", "wb")
+        f.write(data)
+        f.close()
+
+def schedule():
+    begin = input("호선 입력(숫자) : ")
+    station = input("역명 입력(한글) : ")
+    print("====================")
+    print("      요일 선택     ")
+    print("====================")
+    print("1. 평일")
+    print("2. 토요일")
+    print("3. 일요일 / 공휴일")
+    end = input("요일 입력 : ")
+    print("====================")
+    name = begin + "/" + end + "/1"
+
+    getData = GetScheduleData(name)
+    getData.main()
+
+    sc = etree.parse('./xml/schedule.xml')
+    rootSc = sc.getroot()
+
+    for a in rootSc.findall('row'):
+        if(station == a.findtext('STATION_NM')):
+            print(a.findtext('STATION_NM'))
+            print("첫차:", a.findtext('FIRST_TIME'))
+            print("막차:", a.findtext('LAST_TIME'))
+            print("====================")
+
+    key = input()
+    if(key == 'b'):
+        os.system('cls')
 
 # ------------------------------
+StationSelect()
+TrainSelect()
+DaySelect()
+SearchFirstLast()
 
 InputStartStation()
 InputEndStation()
-
-
 InputEmailAddress()
 
 # saveData()
@@ -377,61 +464,6 @@ MoneyRenderText()
 ReceiveTimeRenderText()
 
 # ------------------------------
-
-def SearchLibrary():
-    import http.client
-    from xml.dom.minidom import parse, parseString
-    conn = http.client.HTTPConnection("openAPI.seoul.go.kr:8088")
-    conn.request("GET", "/6b4f54647867696c3932474d68794c/xml/GeoInfoLibrary/1/800")
-    req = conn.getresponse()
-
-    global DataList
-    DataList.clear()
-
-    if req.status == 200:
-        BooksDoc = req.read().decode('utf-8')
-        if BooksDoc == None:
-            print("에러")
-        else:
-            parseData = parseString(BooksDoc)
-            GeoInfoLibrary = parseData.childNodes
-            row = GeoInfoLibrary[0].childNodes
-
-            for item in row:
-                if item.nodeName == "row":
-                    subitems = item.childNodes
-
-                    if subitems[3].firstChild.nodeValue == InputLabel.get():  # 援??대쫫??媛숈쓣 寃쎌슦
-                        pass
-                    elif subitems[5].firstChild.nodeValue == InputLabel.get():  # ???대쫫??媛숈쓣 寃쎌슦
-                        pass
-                    else:
-                        continue
-
-                    # ?곗씠???쎌엯 援ш컙. ?곕씫泥섍? ?놁쓣 ?뚯뿉??"-"???ｋ뒗??
-                    if subitems[29].firstChild is not None:
-                        tel = str(subitems[29].firstChild.nodeValue)
-                        pass  # ?꾩떆
-                        if tel[0] is not '0':
-                            tel = "02-" + tel
-                            pass
-                        DataList.append((subitems[15].firstChild.nodeValue, subitems[13].firstChild.nodeValue, tel))
-                    else:
-                        DataList.append((subitems[15].firstChild.nodeValue, subitems[13].firstChild.nodeValue, "-"))
-
-            for i in range(len(DataList)):
-                RenderText.insert(INSERT, "[")
-                RenderText.insert(INSERT, i + 1)
-                RenderText.insert(INSERT, "] ")
-                RenderText.insert(INSERT, "시설명: ")
-                RenderText.insert(INSERT, DataList[i][0])
-                RenderText.insert(INSERT, "\n")
-                RenderText.insert(INSERT, "주소: ")
-                RenderText.insert(INSERT, DataList[i][1])
-                RenderText.insert(INSERT, "\n")
-                RenderText.insert(INSERT, "전화번호: ")
-                RenderText.insert(INSERT, DataList[i][2])
-                RenderText.insert(INSERT, "\n\n")
 
 g_Tk.mainloop()
 

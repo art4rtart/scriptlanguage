@@ -48,7 +48,7 @@ class GetShortestData:
 
         data = urllib.request.urlopen(self.url).read()
 
-        f = open("shortest.xml", "wb")
+        f = open("./xml/shortest.xml", "wb")
         f.write(data)
         f.close()
 
