@@ -1,11 +1,26 @@
+# Import Module -----------------------------
+
 from tkinter import *
+import xml.etree.ElementTree as etree
+import urllib.request
+import urllib
 from tkinter import font
+
+# -------------------------------------------
+
+# smtp 정보
+host = "smtp.gmail.com" # Gmail SMTP 서버 주소.
+port = "587"
+htmlFileName = "data.html"
+
+# TK Inter -----------------------------------
+
 import tkinter.messagebox
 g_Tk = Tk()
 g_Tk.geometry("1280x720+125+40")
 DataList = []
 
-photo = PhotoImage(file="back.gif")
+photo = PhotoImage(file="back.png")
 imageLabel = Label(g_Tk, image=photo)
 imageLabel.pack()
 
@@ -16,14 +31,6 @@ mail = PhotoImage(file='mail.png')
 
 StartButtonCount = 0
 EndButtonCount = 0
-
-def InitTopText():
-    TempFont = font.Font(g_Tk, size=20, weight='bold', family = 'Consolas')
-    MainText = Label(g_Tk, font = TempFont, text="[서울시 근린시설 검색 App]")
-    MainText.pack()
-    MainText.place(x=20)
-# InitTopText()
-
 
 def InitSearchListBox():
     global SearchListBox
@@ -44,10 +51,7 @@ def InitSearchListBox():
     SearchListBox.place(x=140, y=490)
     # 140
     ListBoxScrollbar.config(command=SearchListBox.yview)
-
 # InitSearchListBox()
-
-
 
 def InputStartStation():
     global InputStart
@@ -70,7 +74,7 @@ def InputEmailAddress():
     InputEmail.pack()
     InputEmail.place(x=1030, y=560)
 
-# -----------------------------------------------------------------------------
+# Draw ------------------------------------------------------------------------
 
 def SearchStartStation():
     SearchButton = Button(g_Tk, image = search, command=StartStationAction, borderwidth = 5, relief = 'ridge')
@@ -93,6 +97,11 @@ def SearchEndStationOK():
     SearchButton.place(x=250, y=615)
 
 # Button Action ---------------------------------------------------------------
+class Check:
+    startLock = False
+    endLock = False
+
+check = Check()
 
 def StartStationAction():
     global StartButtonCount
@@ -102,12 +111,19 @@ def StartStationAction():
         start = InputStart.get() # 입력한 값 저장
         SearchStartStationOK()
         print("Locked")
+        check.startLock = True
 
     else:
         SearchStartStation()
         print("UnLocked")
+        check.startLock = False
 
     StartButtonCount += 1
+
+    if check.startLock is True:
+        if check.endLock is True:
+            shortest()
+            arrival()
 
 def EndStationAction():
     global EndButtonCount
@@ -117,12 +133,20 @@ def EndStationAction():
         end = InputEnd.get() # 입력한 값 저장
         SearchEndStationOK()
         print("Locked")
+        check.endLock = True
 
     else:
         SearchEndStation()
         print("UnLocked")
+        check.endLock = False
 
     EndButtonCount += 1
+
+    if check.startLock is True:
+        if check.endLock is True:
+            shortest()
+            arrival()
+
 
 # -----------------------------------------------------------------------------
 
@@ -159,53 +183,17 @@ def sendEmailAction():
 
 # -----------------------------------------------------------------------------
 
-def ShortestPathRenderText():
-    global RenderText
-
-    RenderTextScrollbar = Scrollbar(g_Tk)
-    RenderTextScrollbar.pack()
-    RenderTextScrollbar.place(x=440, y=450)
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=38, height=6, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
-    RenderText.pack()
-    RenderText.place(x=350, y=560)
-    RenderTextScrollbar.config(command=RenderText.yview)
-    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
-
-    RenderText.configure(state='disabled')
-
-def MoneyRenderText():
-    global RenderText
-
-    RenderTextScrollbar = Scrollbar(g_Tk)
-    RenderTextScrollbar.pack()
-    RenderTextScrollbar.place(x=440, y=450)
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=38, height=6, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
-    RenderText.pack()
-    RenderText.place(x=693, y=560)
-    RenderTextScrollbar.config(command=RenderText.yview)
-    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
-
-    RenderText.configure(state='disabled')
-
 def ArrivalRenderText():
-    global RenderText
-
-    RenderTextScrollbar = Scrollbar(g_Tk)
-    RenderTextScrollbar.pack()
-    RenderTextScrollbar.place(x=440, y=450)
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=38, height=8, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
+    TempFont = font.Font(g_Tk, size=14, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
     RenderText.pack()
-    RenderText.place(x=693, y=160)
-    RenderTextScrollbar.config(command=RenderText.yview)
-    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
+    RenderText.place(x=695, y=160)
 
-    RenderText.configure(state='disabled')
+def ShortestRenderText():
+    TempFont = font.Font(g_Tk, size=17, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=21, height=3, borderwidth=5, relief='ridge')
+    RenderText.pack()
+    RenderText.place(x=345, y=560)
 
 def PositionRenderText():
     global RenderText
@@ -249,10 +237,128 @@ def ReceiveTimeRenderText():
 
     RenderText.configure(state='disabled')
 
+def MoneyRenderText():
+    global RenderText
+
+    RenderTextScrollbar = Scrollbar(g_Tk)
+    RenderTextScrollbar.pack()
+    RenderTextScrollbar.place(x=440, y=450)
+
+    TempFont = font.Font(g_Tk, size=10, family='Consolas')
+    RenderText = Text(g_Tk, width=38, height=6, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
+    RenderText.pack()
+    RenderText.place(x=693, y=560)
+    RenderTextScrollbar.config(command=RenderText.yview)
+    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
+
+    RenderText.configure(state='disabled')
+
+# ------------------------------
+
+class GetShortestData:
+    def __init__(self, n):
+        self.name = n
+
+    def main(self):
+        key = '676a78647663686c3937454f514c57'
+        hangul_utf8 = urllib.parse.quote(self.name)
+        self.url = ("http://swopenapi.seoul.go.kr/api/subway/%s/xml/shortestRoute/0/5/" % key + hangul_utf8)
+
+        data = urllib.request.urlopen(self.url).read()
+
+        f = open("./xml/shortest.xml", "wb")
+        f.write(data)
+        f.close()
+
+def shortest():
+    first = InputStart.get()
+    last = InputEnd.get()
+    name = first + "/" + last
+
+    getData = GetShortestData(name)
+    getData.main()
+
+    short = etree.parse('./xml/shortest.xml')
+    rootShort = short.getroot()
+
+    for a in rootShort.findall('row'):
+        TempFont = font.Font(g_Tk, size=17, family='Consolas')
+        RenderText = Text(g_Tk, font=TempFont, width=21, height=3, borderwidth=5, relief='ridge')
+        x = a.findtext('minTravelTm')
+        y = a.findtext("minStatnCnt")
+        z = a.findtext("minTransferCnt")
+        hour = int(int(x) / 60)
+        minute = int(x) % 60
+
+        time = str(hour) + "시간 " + str(minute) + "분"
+        transition = str(y) + "개 정거장"
+        sPass = str(z) + "회  환승"
+
+        RenderText.insert(INSERT, "      " + time)
+        RenderText.insert(INSERT, "\n")
+        RenderText.insert(INSERT, "      " + sPass)
+        RenderText.insert(INSERT, "\n")
+        RenderText.insert(INSERT, "     " + transition)
+
+        RenderText.pack()
+        RenderText.place(x=345, y=560)
+
+        RenderText.configure(state='disabled')
+        break
+
+class GetArrivalData:
+    def __init__(self, n):
+        self.name = n
+
+    def main(self):
+        key = '7174657a6a63686c313232516c424667'
+        hangul_utf8 = urllib.parse.quote(self.name)
+        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimeStationArrival/0/5/" % key + hangul_utf8)
+
+        data = urllib.request.urlopen(self.url).read()
+
+        f = open("./xml/arrival.xml", "wb")
+        f.write(data)
+        f.close()
+
+def arrival():
+    name = InputStart.get()
+
+    getData = GetArrivalData(name)
+    getData.main()
+
+    arrival = etree.parse('./xml/arrival.xml')
+    rootArrival = arrival.getroot()
+
+
+    for a in rootArrival.findall('row'):
+        TempFont = font.Font(g_Tk, size=14, family='Consolas')
+        RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
+
+        print(a.findtext('trainLineNm'))
+        s = a.findtext('trainLineNm')
+        print(s.split())
+
+        RenderText.insert(INSERT, a.findtext('trainLineNm'))
+        RenderText.insert(INSERT, "\n")
+        RenderText.insert(INSERT, a.findtext('arvlMsg2'))
+        RenderText.insert(INSERT, "\n")
+
+        RenderText.insert(INSERT, a.findtext('trainLineNm'))
+        RenderText.insert(INSERT, "\n")
+        RenderText.insert(INSERT, a.findtext('arvlMsg2'))
+        RenderText.insert(INSERT, "\n")
+
+        RenderText.pack()
+        RenderText.place(x=695, y=160)
+
+
 # ------------------------------
 
 InputStartStation()
 InputEndStation()
+
+
 InputEmailAddress()
 
 # saveData()
@@ -263,7 +369,7 @@ SearchEndStation()
 
 #------------------------------
 
-ShortestPathRenderText()
+ShortestRenderText()
 ArrivalRenderText()
 PositionRenderText()
 ScheduleRenderText()
@@ -327,9 +433,8 @@ def SearchLibrary():
                 RenderText.insert(INSERT, DataList[i][2])
                 RenderText.insert(INSERT, "\n\n")
 
+g_Tk.mainloop()
 
 #InitSendEmailButton()
 #InitSortListBox()
 #InitSortButton()
-
-g_Tk.mainloop()
