@@ -32,6 +32,14 @@ mail = PhotoImage(file='mail.png')
 StartButtonCount = 0
 EndButtonCount = 0
 
+class Data:
+    right = None
+    arrived_0 = None
+    left = None
+    arrived_1 = None
+    startLock = False
+    endLock = False
+
 # First Last Train  -----------------------------------------------------------
 
 def StationSelect():
@@ -140,11 +148,6 @@ def SearchEndStationOK():
     SearchButton.place(x=250, y=615)
 
 # Button Action ---------------------------------------------------------------
-class Check:
-    startLock = False
-    endLock = False
-
-check = Check()
 
 def StartStationAction():
     global StartButtonCount
@@ -154,16 +157,16 @@ def StartStationAction():
         start = InputStart.get() # 입력한 값 저장
         SearchStartStationOK()
         print("Locked")
-        check.startLock = True
+        Data.startLock = True
 
     else:
         SearchStartStation()
         print("UnLocked")
-        check.startLock = False
+        Data.startLock = False
 
     StartButtonCount += 1
-    if check.startLock is True:
-        if check.endLock is True:
+    if Data.startLock is True:
+        if Data.endLock is True:
             shortest()
             arrival()
 
@@ -175,20 +178,19 @@ def EndStationAction():
         end = InputEnd.get() # 입력한 값 저장
         SearchEndStationOK()
         print("Locked")
-        check.endLock = True
+        Data.endLock = True
 
     else:
         SearchEndStation()
         print("UnLocked")
-        check.endLock = False
+        Data.endLock = False
 
     EndButtonCount += 1
 
-    if check.startLock is True:
-        if check.endLock is True:
+    if Data.startLock is True:
+        if Data.endLock is True:
             shortest()
             arrival()
-
 
 # -----------------------------------------------------------------------------
 
@@ -372,27 +374,33 @@ def arrival():
     arrival = etree.parse('./xml/arrival.xml')
     rootArrival = arrival.getroot()
 
+    count = 0
 
     for a in rootArrival.findall('row'):
-        TempFont = font.Font(g_Tk, size=14, family='Consolas')
-        RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
+        if count is 0:
+            Data.right = a.findtext('trainLineNm')
+            Data.arrived_0 = a.findtext('arvlMsg2')
 
-        print(a.findtext('trainLineNm'))
-        s = a.findtext('trainLineNm')
-        print(s.split())
+        if count is 1:
+            Data.left = a.findtext('trainLineNm')
+            Data.arrived_1 = a.findtext('arvlMsg2')
 
-        RenderText.insert(INSERT, a.findtext('trainLineNm'))
-        RenderText.insert(INSERT, "\n")
-        RenderText.insert(INSERT, a.findtext('arvlMsg2'))
-        RenderText.insert(INSERT, "\n")
+        count += 1
 
-        RenderText.insert(INSERT, a.findtext('trainLineNm'))
-        RenderText.insert(INSERT, "\n")
-        RenderText.insert(INSERT, a.findtext('arvlMsg2'))
-        RenderText.insert(INSERT, "\n")
+    TempFont = font.Font(g_Tk, size=14, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
+    RenderText.insert(INSERT, Data.right)
+    RenderText.insert(INSERT, "\n")
+    RenderText.insert(INSERT, Data.arrived_0)
+    RenderText.insert(INSERT, "\n")
+    RenderText.insert(INSERT, "=========================\n")
+    RenderText.insert(INSERT, Data.left)
+    RenderText.insert(INSERT, "\n")
+    RenderText.insert(INSERT, Data.arrived_1)
+    RenderText.insert(INSERT, "\n")
 
-        RenderText.pack()
-        RenderText.place(x=695, y=158)
+    RenderText.pack()
+    RenderText.place(x=695, y=158)
 
 class GetScheduleData:
     def __init__(self, n):
