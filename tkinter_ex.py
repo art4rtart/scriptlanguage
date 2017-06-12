@@ -31,6 +31,7 @@ mail = PhotoImage(file='mail.png')
 
 StartButtonCount = 0
 EndButtonCount = 0
+StationButtonCount = 0
 
 class Data:
     right = None
@@ -39,18 +40,20 @@ class Data:
     arrived_1 = None
     startLock = False
     endLock = False
+    stationLock = False
 
 # First Last Train  -----------------------------------------------------------
 
 def StationSelect():
-    global InputStart
+    global InputStation
     TempFont = font.Font(g_Tk, size=10, weight='bold', family = 'Consolas')
-    InputStart = Entry(g_Tk, font = TempFont, width = 20, borderwidth = 10, relief = 'ridge')
-    InputStart.pack()
-    InputStart.place(x=1030, y=170)
+    InputStation = Entry(g_Tk, font = TempFont, width = 20, borderwidth = 10, relief = 'ridge')
+    InputStation.pack()
+    InputStation.place(x=1030, y=170)
 
 def TrainSelect():
     global SearchListBox
+
     ListBoxScrollbar = Scrollbar(g_Tk)
     ListBoxScrollbar.pack()
     ListBoxScrollbar.place(x=1215, y=215)
@@ -94,13 +97,34 @@ def DaySelect():
 
     ListBoxScrollbar.config(command=SearchListBox.yview)
 
+
 def SearchFirstLast():
     SearchButton = Button(g_Tk, image = search, command=StartFirstLastAction, borderwidth = 5, relief = 'ridge')
     SearchButton.pack()
     SearchButton.place(x=1200, y=170)
 
+def SearchFirstLastOK():
+    SearchButton = Button(g_Tk, image = searchLock, command=StartFirstLastAction, borderwidth = 5, relief = 'ridge')
+    SearchButton.pack()
+    SearchButton.place(x=1200, y=170)
+
 def StartFirstLastAction():
-    print("ok")
+    global StationButtonCount
+
+    if StationButtonCount % 2 is 0:
+        SearchFirstLastOK()
+        print("Locked")
+        Data.stationLock = True
+
+    else:
+        SearchFirstLast()
+        print("UnLocked")
+        Data.stationLock = False
+
+    StationButtonCount += 1
+
+    if Data.stationLock is True:
+        schedule()
 
 # -----------------------------------------------------------------------------
 
@@ -222,8 +246,46 @@ def saveDataAction():
     RenderText.configure(state='disabled')
 
 def sendEmailAction():
-    sendToHim = InputEmail.get()
-    print(sendToHim)
+    sendToUser = InputEmail.get()
+
+    global host, port
+    html = ""
+    senderAddr = "sq7r9760@gmail.com"
+    pwd = "chldnwls3665"
+    recipientAddr = sendToUser
+    title = "서울 지하철 알리미"
+
+    import mysmtplib
+    # MIMEMultipart의 MIME을 생성합니다.
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+
+    # Message container를 생성합니다.
+    msg = MIMEMultipart('alternative')
+
+    # set message
+    msg['Subject'] = title
+    msg['From'] = senderAddr
+    msg['To'] = recipientAddr
+
+    htmlFD = open(htmlFileName, 'rb')
+    HtmlPart = MIMEText(htmlFD.read(), 'html', _charset='UTF-8')
+    htmlFD.close()
+
+    # 메세지에 생성한 MIME 문서를 첨부합니다.
+    msg.attach(HtmlPart)
+
+    print("connect smtp server ... ")
+    s = mysmtplib.MySMTP(host, port)
+    # s.set_debuglevel(1)
+    s.ehlo()
+    s.starttls()
+    s.ehlo()
+    s.login(senderAddr, pwd)  # 로긴을 합니다.
+    s.sendmail(senderAddr, [recipientAddr], msg.as_string())
+    s.close()
+
+    print("Mail sending complete!!!")
 
 # -----------------------------------------------------------------------------
 
@@ -268,16 +330,6 @@ def ScheduleRenderText():
     RenderText.place(x=1032, y=330)
     RenderTextScrollbar.config(command=RenderText.yview)
     RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
-
-    RenderText.configure(state='disabled')
-
-def ReceiveTimeRenderText():
-    global RenderText
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=30, height=1, borderwidth=5, relief='ridge')
-    RenderText.pack()
-    RenderText.place(x=20, y=70)
 
     RenderText.configure(state='disabled')
 
@@ -342,12 +394,23 @@ def shortest():
         RenderText.insert(INSERT, "\n")
         RenderText.insert(INSERT, "      " + sPass)
         RenderText.insert(INSERT, "\n")
-        RenderText.insert(INSERT, "     " + transition)
+        RenderText.insert(INSERT, "      " + transition)
 
         RenderText.pack()
         RenderText.place(x=345, y=560)
 
         RenderText.configure(state='disabled')
+
+        l = rootShort.findtext('row/minTransferMsg')
+
+        f = open('data.html', 'w')
+        f.write(rootShort.findtext('row/statnFnm'))
+        f.write(" 에서 ")
+        f.write(rootShort.findtext('row/statnTnm'))
+        f.write(" 까지 ")
+        f.write(l)
+        f.close()
+
         break
 
 class GetArrivalData:
@@ -366,6 +429,10 @@ class GetArrivalData:
         f.close()
 
 def arrival():
+    # b = open('data.html', 'a')
+    # b.write("안녕하세요 서울 지하철 알리미 입니다.")
+    # b.close()
+
     name = InputStart.get()
 
     getData = GetArrivalData(name)
@@ -455,12 +522,10 @@ SearchFirstLast()
 InputStartStation()
 InputEndStation()
 InputEmailAddress()
-
-# saveData()
-sendEmail()
-
 SearchStartStation()
 SearchEndStation()
+# saveData()
+sendEmail()
 
 #------------------------------
 
@@ -469,7 +534,6 @@ ArrivalRenderText()
 PositionRenderText()
 ScheduleRenderText()
 MoneyRenderText()
-ReceiveTimeRenderText()
 
 # ------------------------------
 
