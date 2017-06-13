@@ -20,14 +20,14 @@ g_Tk = Tk()
 g_Tk.geometry("1280x720+125+40")
 DataList = []
 
-photo = PhotoImage(file="back.png")
+photo = PhotoImage(file="./image/back.png")
 imageLabel = Label(g_Tk, image=photo)
 imageLabel.pack()
 
-search = PhotoImage(file="search.png")
-searchLock = PhotoImage(file="searchLock.png")
-save = PhotoImage(file='save.png')
-mail = PhotoImage(file='mail.png')
+search = PhotoImage(file="./image/search.png")
+searchLock = PhotoImage(file="./image/searchLock.png")
+save = PhotoImage(file='./image/save.png')
+mail = PhotoImage(file='./image/mail.png')
 
 StartButtonCount = 0
 EndButtonCount = 0
@@ -41,6 +41,8 @@ class Data:
     startLock = False
     endLock = False
     stationLock = False
+    station = 0
+    money = 0
 
 # First Last Train  -----------------------------------------------------------
 
@@ -193,6 +195,8 @@ def StartStationAction():
         if Data.endLock is True:
             shortest()
             arrival()
+            subPos()
+            money()
 
 def EndStationAction():
     global EndButtonCount
@@ -215,6 +219,8 @@ def EndStationAction():
         if Data.endLock is True:
             shortest()
             arrival()
+            subPos()
+            money()
 
 # -----------------------------------------------------------------------------
 
@@ -302,20 +308,10 @@ def ShortestRenderText():
     RenderText.place(x=345, y=560)
 
 def PositionRenderText():
-    global RenderText
-
-    RenderTextScrollbar = Scrollbar(g_Tk)
-    RenderTextScrollbar.pack()
-    RenderTextScrollbar.place(x=440, y=450)
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=38, height=8, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
+    TempFont = font.Font(g_Tk, size=14, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
     RenderText.pack()
-    RenderText.place(x=693, y=355)
-    RenderTextScrollbar.config(command=RenderText.yview)
-    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
-
-    RenderText.configure(state='disabled')
+    RenderText.place(x=693, y=350)
 
 def ScheduleRenderText():
     global RenderText
@@ -334,20 +330,10 @@ def ScheduleRenderText():
     RenderText.configure(state='disabled')
 
 def MoneyRenderText():
-    global RenderText
-
-    RenderTextScrollbar = Scrollbar(g_Tk)
-    RenderTextScrollbar.pack()
-    RenderTextScrollbar.place(x=440, y=450)
-
-    TempFont = font.Font(g_Tk, size=10, family='Consolas')
-    RenderText = Text(g_Tk, width=38, height=6, borderwidth=5, relief='ridge', yscrollcommand=RenderTextScrollbar.set)
+    TempFont = font.Font(g_Tk, size=17, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=20, height=3, borderwidth=5, relief='ridge')
     RenderText.pack()
-    RenderText.place(x=693, y=560)
-    RenderTextScrollbar.config(command=RenderText.yview)
-    RenderTextScrollbar.pack(side=RIGHT, fill=BOTH)
-
-    RenderText.configure(state='disabled')
+    RenderText.place(x=695, y=558)
 
 # ------------------------------
 
@@ -389,6 +375,8 @@ def shortest():
         time = str(hour) + "시간 " + str(minute) + "분"
         transition = str(y) + "개 정거장"
         sPass = str(z) + "회  환승"
+
+        Data.station = int(y)
 
         RenderText.insert(INSERT, "      " + time)
         RenderText.insert(INSERT, "\n")
@@ -469,6 +457,71 @@ def arrival():
     RenderText.pack()
     RenderText.place(x=695, y=158)
 
+class GetSubPosData:
+    def __init__(self, n):
+        self.name = n
+
+    def main(self):
+        key = '6c4e636b7263686c3131326b4e4c5456'
+        hangul_utf8 = urllib.parse.quote(self.name)
+        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/1/36/" % key + hangul_utf8)
+
+        data = urllib.request.urlopen(self.url).read()
+        f = open("./xml/position.xml", "wb")
+        f.write(data)
+        f.close()
+
+def subPos():
+    name = "4호선"
+    sub = InputStart.get()
+
+    getData = GetSubPosData(name)
+    getData.main()
+
+    pos = etree.parse('./xml/position.xml')
+    rootPos = pos.getroot()
+
+    TempFont = font.Font(g_Tk, size=14, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=26, height=5, borderwidth=5, relief='ridge')
+
+    for a in rootPos.findall('row'):
+        if(sub == a.findtext('statnNm')):
+            RenderText.insert(INSERT, a.findtext('statnNm') + "역")
+
+            if(a.findtext('trainSttus') == '0'):
+                RenderText.insert(INSERT, " : 진입")
+                RenderText.insert(INSERT, "\n")
+
+            elif(a.findtext('trainSttus') == '1'):
+                RenderText.insert(INSERT, " : 도착")
+                RenderText.insert(INSERT, "\n")
+
+            elif (a.findtext('trainSttus') == '2'):
+                RenderText.insert(INSERT, " : 출발")
+                RenderText.insert(INSERT, "\n")
+
+            RenderText.insert(INSERT, "종착역 : " + a.findtext('statnTnm'))
+            RenderText.insert(INSERT, "\n")
+
+            if(a.findtext('directAt') == '0'):
+                RenderText.insert(INSERT, "급행이 아닙니다")
+                RenderText.insert(INSERT, "\n")
+
+            else:
+                RenderText.insert(INSERT, "급행입니다")
+                RenderText.insert(INSERT, "\n")
+
+            if(a.findtext('lstcarAt') == '0'):
+                RenderText.insert(INSERT, "막차가 아닙니다")
+                RenderText.insert(INSERT, "\n")
+
+            else:
+                RenderText.insert(INSERT, "막차입니다")
+                RenderText.insert(INSERT, "\n")
+            RenderText.insert(INSERT, "=========================\n")
+    RenderText.pack()
+    RenderText.place(x=693, y=350)
+
 class GetScheduleData:
     def __init__(self, n):
         self.name = n
@@ -512,6 +565,41 @@ def schedule():
     key = input()
     if(key == 'b'):
         os.system('cls')
+
+def money():
+    TempFont = font.Font(g_Tk, size=17, family='Consolas')
+    RenderText = Text(g_Tk, font=TempFont, width=20, height=3, borderwidth=5, relief='ridge')
+    RenderText.pack()
+
+    if Data.station > 0:
+        Data.money = 1250
+
+    if Data.station > 5:
+        Data.money = 1350
+
+    if Data.station > 8:
+        Data.money = 1450
+
+    if Data.station > 10:
+        Data.money = 1550
+
+    if Data.station > 12:
+        Data.money = 1650
+
+    if Data.station > 14:
+        Data.money = 1750
+
+    if Data.station > 20:
+        Data.money = 2050
+
+    if Data.station > 30:
+        Data.money = 2150
+
+    if Data.station > 40:
+        Data.money = 2350
+
+    RenderText.insert(INSERT, "\n       " + str(Data.money) + "원")
+    RenderText.place(x=695, y=558)
 
 # ------------------------------
 StationSelect()

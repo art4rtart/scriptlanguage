@@ -33,7 +33,7 @@ class GetSubPosData:
         self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/1/50/" % key + hangul_utf8)
 
         data = urllib.request.urlopen(self.url).read()
-        f = open("position.xml", "wb")
+        f = open("./xml/position.xml", "wb")
         f.write(data)
         f.close()
 
@@ -59,7 +59,7 @@ class GetScheduleData:
     def main(self):
         key = '676a78647663686c3937454f514c57'
         hangul_utf8 = urllib.parse.quote(self.name)
-        self.url = ("http://openAPI.seoul.go.kr:8088/%s/xml/SearchFirstAndLastTrainInfobyLineService/1/50/" % key + hangul_utf8)
+        self.url = ("http://openAPI.seoul.go.kr:8088/%s/xml/SearchFirstAndLastTrainInfobyLineService/1/25/" % key + hangul_utf8)
 
         data = urllib.request.urlopen(self.url).read()
         f = open("schedule.xml", "wb")
@@ -136,6 +136,7 @@ def subPos():
 
                 else:
                     print('막차 : O')
+
         print("====================")
 
     key = input()
