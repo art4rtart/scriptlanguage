@@ -23,10 +23,10 @@ def InitSearchListBox():
                             width=10, height=1, borderwidth=12, relief='ridge',
                             yscrollcommand=ListBoxScrollbar.set)
 
-    SearchListBox.insert(1, "도서관")
-    SearchListBox.insert(2, "모범음식점")
-    SearchListBox.insert(3, "마트")
-    SearchListBox.insert(4, "문화공간")
+    SearchListBox.insert(1, "1번")
+    SearchListBox.insert(2, "2번")
+    SearchListBox.insert(3, "3번")
+    SearchListBox.insert(4, "4번")
     SearchListBox.pack()
     SearchListBox.place(x=10, y=50)
 
@@ -52,11 +52,10 @@ def SearchButtonAction():
     RenderText.configure(state='normal')
     RenderText.delete(0.0, END)  # ?댁쟾 異쒕젰 ?띿뒪??紐⑤몢 ??젣
     iSearchIndex = SearchListBox.curselection()[0]  # 由ъ뒪?몃컯???몃뜳??媛?몄삤湲?
-
     if iSearchIndex == 0:  # ?꾩꽌愿
-        print("hi")
+        print("1번 정보실행")
     elif iSearchIndex == 1:  # 紐⑤쾾?뚯떇
-        pass#SearchGoodFoodService()
+        print("2번 정보실행")
     elif iSearchIndex == 2:  # 留덉폆
         pass#SearchMarket()
     elif iSearchIndex == 3:
