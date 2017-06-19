@@ -84,6 +84,12 @@ def MapAction():
         MapOk()
 
     else:
+        Data.startLock = False
+        Data.endLock = False
+        Data.stationLock = False
+        Data.trainLock = False
+        Data.dayLock = False
+
         StartButtonCount = 0
         EndButtonCount = 0
         StationButtonCount = 0
@@ -557,7 +563,7 @@ class GetSubPosData:
     def main(self):
         key = '6c4e636b7263686c3131326b4e4c5456'
         hangul_utf8 = urllib.parse.quote(self.name)
-        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/1/100/" % key + hangul_utf8)
+        self.url = ("http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/1/1000/" % key + hangul_utf8)
 
         data = urllib.request.urlopen(self.url).read()
         f = open("./xml/position.xml", "wb")
@@ -613,6 +619,7 @@ def subPos():
                 RenderText.insert(INSERT, "\n")
 
             RenderText.insert(INSERT, "\n")
+
 
     RenderText.pack()
     RenderText.place(x=693, y=350)

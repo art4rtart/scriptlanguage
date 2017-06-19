@@ -22,68 +22,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sub.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sub.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sub.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+            <state relative-caret-position="194">
+              <caret line="558" column="20" lean-forward="true" selection-start-line="558" selection-start-column="20" selection-end-line="558" selection-end-column="20" />
               <folding>
                 <element signature="e#1299#1415#0" expanded="false" />
                 <element signature="e#1432#1586#0" expanded="false" />
                 <element signature="e#1605#1764#0" expanded="false" />
-                <element signature="e#2778#3031#0" expanded="false" />
-                <element signature="e#3056#3301#0" expanded="false" />
-                <element signature="e#3324#3561#0" expanded="false" />
-                <element signature="e#3592#3764#0" expanded="false" />
-                <element signature="e#3792#3962#0" expanded="false" />
-                <element signature="e#3988#4156#0" expanded="false" />
-                <element signature="e#4189#4365#0" expanded="false" />
-                <element signature="e#4395#4569#0" expanded="false" />
-                <element signature="e#4597#4769#0" expanded="false" />
-                <element signature="e#4806#5184#0" expanded="false" />
-                <element signature="e#5218#5582#0" expanded="false" />
-                <element signature="e#5614#5966#0" expanded="false" />
-                <element signature="e#6076#6319#0" expanded="false" />
-                <element signature="e#6348#6583#0" expanded="false" />
-                <element signature="e#6614#6858#0" expanded="false" />
-                <element signature="e#6971#7138#0" expanded="false" />
-                <element signature="e#7172#7343#0" expanded="false" />
-                <element signature="e#7373#7538#0" expanded="false" />
-                <element signature="e#7570#7739#0" expanded="false" />
-                <element signature="e#7852#8359#0" expanded="false" />
-                <element signature="e#8389#8879#0" expanded="false" />
-                <element signature="e#8981#9144#0" expanded="false" />
-                <element signature="e#9173#10163#0" expanded="false" />
-                <element signature="e#10284#10489#0" expanded="false" />
-                <element signature="e#10521#10726#0" expanded="false" />
-                <element signature="e#10758#10963#0" expanded="false" />
-                <element signature="e#10995#11765#0" expanded="false" />
-                <element signature="e#11794#11999#0" expanded="false" />
-                <element signature="e#12027#12230#0" expanded="false" />
-                <element signature="e#12294#12709#0" expanded="false" />
-                <element signature="e#12731#14229#0" expanded="false" />
-                <element signature="e#12995#14229#0" expanded="false" />
-                <element signature="e#14257#14682#0" expanded="false" />
-                <element signature="e#14703#16140#0" expanded="false" />
-                <element signature="e#16167#16588#0" expanded="false" />
-                <element signature="e#16608#18299#0" expanded="false" />
-                <element signature="e#18328#18763#0" expanded="false" />
-                <element signature="e#18785#19985#0" expanded="false" />
-                <element signature="e#20004#20875#0" expanded="false" />
-                <element signature="e#20903#21167#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tkinter_ex.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tkinter_ex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#1347#1568#0" expanded="false" />
+                <element signature="e#2932#3185#0" expanded="false" />
+                <element signature="e#3210#3455#0" expanded="false" />
+                <element signature="e#3478#3715#0" expanded="false" />
+                <element signature="e#3746#3918#0" expanded="false" />
+                <element signature="e#3946#4116#0" expanded="false" />
+                <element signature="e#4142#4310#0" expanded="false" />
+                <element signature="e#4343#4519#0" expanded="false" />
+                <element signature="e#4549#4723#0" expanded="false" />
+                <element signature="e#4751#4923#0" expanded="false" />
+                <element signature="e#4960#5338#0" expanded="false" />
+                <element signature="e#5372#5736#0" expanded="false" />
+                <element signature="e#5768#6120#0" expanded="false" />
+                <element signature="e#6230#6473#0" expanded="false" />
+                <element signature="e#6502#6737#0" expanded="false" />
+                <element signature="e#6768#7012#0" expanded="false" />
+                <element signature="e#7125#7292#0" expanded="false" />
+                <element signature="e#7326#7497#0" expanded="false" />
+                <element signature="e#7527#7692#0" expanded="false" />
+                <element signature="e#7724#7893#0" expanded="false" />
+                <element signature="e#8006#8513#0" expanded="false" />
+                <element signature="e#8543#9033#0" expanded="false" />
+                <element signature="e#9135#9298#0" expanded="false" />
+                <element signature="e#9327#10317#0" expanded="false" />
+                <element signature="e#10438#10643#0" expanded="false" />
+                <element signature="e#10675#10880#0" expanded="false" />
+                <element signature="e#10912#11117#0" expanded="false" />
+                <element signature="e#11149#11919#0" expanded="false" />
+                <element signature="e#11948#12153#0" expanded="false" />
+                <element signature="e#12181#12384#0" expanded="false" />
+                <element signature="e#12448#12863#0" expanded="false" />
+                <element signature="e#12885#14383#0" expanded="false" />
+                <element signature="e#13149#14383#0" expanded="false" />
+                <element signature="e#14411#14836#0" expanded="false" />
+                <element signature="e#14857#16294#0" expanded="false" />
+                <element signature="e#18484#18919#0" expanded="false" />
+                <element signature="e#18941#20141#0" expanded="false" />
+                <element signature="e#20160#21031#0" expanded="false" />
+                <element signature="e#21059#21323#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -196,14 +181,15 @@
         <option value="$PROJECT_DIR$/launcher.py" />
         <option value="$PROJECT_DIR$/../수업자료/tkinter_ex.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/sub.py" />
         <option value="$PROJECT_DIR$/tkinter_ex.py" />
+        <option value="$PROJECT_DIR$/xml/position.xml" />
+        <option value="$PROJECT_DIR$/sub.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="455" />
-    <option name="y" value="124" />
+    <option name="x" value="207" />
+    <option name="y" value="28" />
     <option name="width" value="1595" />
     <option name="height" value="951" />
   </component>
@@ -223,7 +209,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -236,8 +221,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tkinter_ex">
+  <component name="RunManager" selected="Python.sub">
     <configuration default="false" name="tkinter_ex" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -444,8 +444,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tkinter_ex" />
-        <item index="1" class="java.lang.String" itemvalue="Python.sub" />
+        <item index="0" class="java.lang.String" itemvalue="Python.sub" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tkinter_ex" />
         <item index="2" class="java.lang.String" itemvalue="Python.sub (1)" />
         <item index="3" class="java.lang.String" itemvalue="Python.tkinter_ex (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.tst" />
@@ -469,18 +469,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="455" y="124" width="1595" height="951" extended-state="0" />
+    <frame x="207" y="28" width="1595" height="951" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25681674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34029484" sideWeight="0.5535827" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34029484" sideWeight="0.5586557" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34029484" sideWeight="0.44134432" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34029484" sideWeight="0.44641724" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39717084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -519,7 +519,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Plan.txt" />
     <entry file="file://$USER_HOME$/AppData/Local/Microsoft/Windows/INetCache/IE/5KDK4PY1/tkinter_ex.py" />
     <entry file="file://$PROJECT_DIR$/우주소녀.gif" />
     <entry file="file://$PROJECT_DIR$/sub.gif" />
@@ -651,65 +650,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tkinter_ex.py" />
+    <entry file="file://$PROJECT_DIR$/xml/position.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1984" lean-forward="false" selection-start-line="0" selection-start-column="1984" selection-end-line="0" selection-end-column="1984" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sub.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        <state relative-caret-position="194">
+          <caret line="558" column="20" lean-forward="true" selection-start-line="558" selection-start-column="20" selection-end-line="558" selection-end-column="20" />
           <folding>
             <element signature="e#1299#1415#0" expanded="false" />
             <element signature="e#1432#1586#0" expanded="false" />
             <element signature="e#1605#1764#0" expanded="false" />
-            <element signature="e#2778#3031#0" expanded="false" />
-            <element signature="e#3056#3301#0" expanded="false" />
-            <element signature="e#3324#3561#0" expanded="false" />
-            <element signature="e#3592#3764#0" expanded="false" />
-            <element signature="e#3792#3962#0" expanded="false" />
-            <element signature="e#3988#4156#0" expanded="false" />
-            <element signature="e#4189#4365#0" expanded="false" />
-            <element signature="e#4395#4569#0" expanded="false" />
-            <element signature="e#4597#4769#0" expanded="false" />
-            <element signature="e#4806#5184#0" expanded="false" />
-            <element signature="e#5218#5582#0" expanded="false" />
-            <element signature="e#5614#5966#0" expanded="false" />
-            <element signature="e#6076#6319#0" expanded="false" />
-            <element signature="e#6348#6583#0" expanded="false" />
-            <element signature="e#6614#6858#0" expanded="false" />
-            <element signature="e#6971#7138#0" expanded="false" />
-            <element signature="e#7172#7343#0" expanded="false" />
-            <element signature="e#7373#7538#0" expanded="false" />
-            <element signature="e#7570#7739#0" expanded="false" />
-            <element signature="e#7852#8359#0" expanded="false" />
-            <element signature="e#8389#8879#0" expanded="false" />
-            <element signature="e#8981#9144#0" expanded="false" />
-            <element signature="e#9173#10163#0" expanded="false" />
-            <element signature="e#10284#10489#0" expanded="false" />
-            <element signature="e#10521#10726#0" expanded="false" />
-            <element signature="e#10758#10963#0" expanded="false" />
-            <element signature="e#10995#11765#0" expanded="false" />
-            <element signature="e#11794#11999#0" expanded="false" />
-            <element signature="e#12027#12230#0" expanded="false" />
-            <element signature="e#12294#12709#0" expanded="false" />
-            <element signature="e#12731#14229#0" expanded="false" />
-            <element signature="e#12995#14229#0" expanded="false" />
-            <element signature="e#14257#14682#0" expanded="false" />
-            <element signature="e#14703#16140#0" expanded="false" />
-            <element signature="e#16167#16588#0" expanded="false" />
-            <element signature="e#16608#18299#0" expanded="false" />
-            <element signature="e#18328#18763#0" expanded="false" />
-            <element signature="e#18785#19985#0" expanded="false" />
-            <element signature="e#20004#20875#0" expanded="false" />
-            <element signature="e#20903#21167#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tkinter_ex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#1347#1568#0" expanded="false" />
+            <element signature="e#2932#3185#0" expanded="false" />
+            <element signature="e#3210#3455#0" expanded="false" />
+            <element signature="e#3478#3715#0" expanded="false" />
+            <element signature="e#3746#3918#0" expanded="false" />
+            <element signature="e#3946#4116#0" expanded="false" />
+            <element signature="e#4142#4310#0" expanded="false" />
+            <element signature="e#4343#4519#0" expanded="false" />
+            <element signature="e#4549#4723#0" expanded="false" />
+            <element signature="e#4751#4923#0" expanded="false" />
+            <element signature="e#4960#5338#0" expanded="false" />
+            <element signature="e#5372#5736#0" expanded="false" />
+            <element signature="e#5768#6120#0" expanded="false" />
+            <element signature="e#6230#6473#0" expanded="false" />
+            <element signature="e#6502#6737#0" expanded="false" />
+            <element signature="e#6768#7012#0" expanded="false" />
+            <element signature="e#7125#7292#0" expanded="false" />
+            <element signature="e#7326#7497#0" expanded="false" />
+            <element signature="e#7527#7692#0" expanded="false" />
+            <element signature="e#7724#7893#0" expanded="false" />
+            <element signature="e#8006#8513#0" expanded="false" />
+            <element signature="e#8543#9033#0" expanded="false" />
+            <element signature="e#9135#9298#0" expanded="false" />
+            <element signature="e#9327#10317#0" expanded="false" />
+            <element signature="e#10438#10643#0" expanded="false" />
+            <element signature="e#10675#10880#0" expanded="false" />
+            <element signature="e#10912#11117#0" expanded="false" />
+            <element signature="e#11149#11919#0" expanded="false" />
+            <element signature="e#11948#12153#0" expanded="false" />
+            <element signature="e#12181#12384#0" expanded="false" />
+            <element signature="e#12448#12863#0" expanded="false" />
+            <element signature="e#12885#14383#0" expanded="false" />
+            <element signature="e#13149#14383#0" expanded="false" />
+            <element signature="e#14411#14836#0" expanded="false" />
+            <element signature="e#14857#16294#0" expanded="false" />
+            <element signature="e#18484#18919#0" expanded="false" />
+            <element signature="e#18941#20141#0" expanded="false" />
+            <element signature="e#20160#21031#0" expanded="false" />
+            <element signature="e#21059#21323#0" expanded="false" />
           </folding>
         </state>
       </provider>
